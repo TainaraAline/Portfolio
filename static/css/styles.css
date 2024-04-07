@@ -1,0 +1,429 @@
+/* Basic configuration */
+#dark-mode {
+  display: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main section {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* First visible screen, with my name, photo and resume */
+/* I want the first section of the website to have the full height of the browser.
+Also the background is set to the gradient from pruple to pink */
+/* This first section will not be affected by light/dark mode, as the colors
+will always respect the palette chose */
+/* Also the position relative is for the divider and cat */
+#bio {
+  height: 100vh;
+  flex-direction: column;
+  padding: 0 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(69, 19, 85, 1) 0%,
+    rgba(110, 9, 121, 1) 50%,
+    rgba(255, 100, 163, 1) 100%
+  );
+  position: relative;
+}
+
+#bio h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 96px;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+#bio-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+/* I put an animation to the shadow of the image, so it keeps
+growing up to a point until it resets and start all over again */
+#hero {
+  height: 450px;
+  width: 450px;
+  border-radius: 100%;
+  animation: shadowGrow 2s linear infinite;
+}
+
+@keyframes shadowGrow {
+  0% {
+    box-shadow: 0px 0px 21px 15px rgba(255, 49, 133, 1);
+  }
+  100% {
+    box-shadow: 0px 0px 60px 40px rgba(255, 49, 133, 1);
+  }
+}
+
+/* Board is what I called the left part with the notebook and girl svg image.
+Here I put the content that is inside the board */
+#board {
+  background: url("../images/board.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 470px;
+  height: 412px;
+  min-width: 470px;
+  min-height: 412px;
+  display: flex;
+  font-family: "Dancing Script", cursive;
+}
+
+#board-content {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 260px;
+  padding: 16px 54px;
+  justify-content: space-between;
+}
+
+#board-content div {
+  display: flex;
+  flex-direction: column;
+}
+
+#board-content h2 {
+  display: inline;
+  margin: 0;
+  font-weight: 700;
+  font-size: 34px;
+  text-align: center;
+}
+
+#board-content p {
+  display: inline;
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+#resume {
+  padding-left: 8px;
+  padding-top: 14px;
+}
+
+#resume img {
+  width: 30px;
+}
+
+#resume a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  border: 2px dashed #000;
+  padding: 6px;
+}
+
+/* Here is the hover effect I put when you hover over the resume link */
+#resume a:hover {
+  transform: scale(1.08);
+  background-color: rgba(240, 255, 100, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+#resume p {
+  margin: 0;
+}
+
+#cat {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
+#cat img {
+  width: 100px;
+}
+
+/* CSS provided by Shape Divider */
+.custom-shape-divider-bottom-1712452141 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  fill: #f0ff64;
+}
+
+/* Second part, where the list of projects are displayed */
+#projects {
+  width: 100%;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(240, 255, 100, 1) 0%,
+    rgba(255, 255, 255, 1) 30%
+  );
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+/* This is where I start to apply the effects of dark mode enabled.
+So basically I use light mode as default styles and then I use this selector
+#dark-mode:checked + ... { ... }
+to apply dark styles when the checkbox is checked.
+I've been following the pattern of putting the dark mode styles right below
+the default styles, to be easier to compare and see what's being changed */
+#dark-mode:checked + main #projects {
+  background: linear-gradient(
+    180deg,
+    rgba(240, 255, 100, 1) 0%,
+    rgba(0, 0, 0, 1) 30%
+  );
+}
+
+#projects-title {
+  position: relative;
+  width: 100%;
+}
+
+#dark-mode-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+#dark-mode-container label {
+  cursor: pointer;
+}
+
+#dark-mode-container label:hover {
+  transform: scale(1.2);
+  transition: all 0.4s ease-in-out;
+}
+
+#dark-mode-container img {
+  width: 60px;
+}
+
+#projects h1 {
+  font-size: 42px;
+  text-align: center;
+  color: #000;
+}
+
+#dark-mode:checked + main #projects h1 {
+  color: #fff;
+}
+
+#projects-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-evenly;
+  gap: 40px 28px;
+}
+
+/* This is the card with the project contenton the screen */
+#projects article {
+  flex-basis: 23%;
+  display: flex;
+  min-width: 324px;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px 4px #000;
+}
+
+#dark-mode:checked + main #projects article {
+  border: 2px solid #f0ff64;
+  background-color: #000;
+  box-shadow: 0px 0px 12px 4px rgba(240, 255, 100, 0.6);
+}
+
+/* A small animation on hovering the card */
+#projects article:hover {
+  transform: scale(1.05);
+  transition: all 0.4s ease-in-out;
+}
+
+#projects article img {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+}
+
+#projects a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#dark-mode:checked + main #projects a {
+  color: #fff;
+}
+
+#projects a div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+#projects h4 {
+  width: 100%;
+  text-align: center;
+}
+
+#projects p {
+  width: 100%;
+  text-align: center;
+}
+
+/* The footer of the page */
+footer {
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: space-evenly;
+  gap: 30px;
+  padding: 8px 0 10px;
+  height: 240px;
+  background: url("../images/waves.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#dark-mode:checked ~ footer {
+  background-color: #000;
+}
+
+footer a,
+footer div {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+  color: #fff;
+}
+
+footer a:hover {
+  border-bottom: 3px solid #fff;
+  transform: scale(1.1);
+  transition: all 0.2s linear;
+}
+
+footer img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-cat {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-cat.left {
+  left: 8%;
+}
+
+.footer-cat.right {
+  right: 8%;
+}
+
+/* Responsive css */
+/* This is where I change some of the styles for responsiveness on mobile, tablets and smaller screens */
+/* I created 2 different media screen sizes, because some of the elements needed to change at different width sizes */
+@media screen and (max-width: 1100px) {
+  #bio {
+    height: 100%;
+  }
+
+  #bio-content {
+    flex-direction: column;
+    margin: 40px 0 60px;
+    gap: 60px;
+  }
+
+  #hero {
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+    animation: shadowGrow 2s linear infinite;
+  }
+
+  #cat {
+    right: 15px;
+  }
+
+  .custom-shape-divider-bottom-1712452141 {
+    display: none;
+  }
+
+  #dark-mode-container {
+    bottom: unset;
+    top: -30px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+  }
+
+  .footer-cat.left {
+    left: 0;
+  }
+
+  .footer-cat.right {
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 1370px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+  }
+}
