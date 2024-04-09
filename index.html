@@ -19,22 +19,27 @@
     <input id="dark-mode" type="checkbox" />
     <main>
       <section id="bio">
+        <header>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/tainarasb/"
+          >
+            <img src="./static/images/linkedin.svg" alt="linkedin" />
+            <span>Linkedin</span>
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/TainaraAline"
+          >
+            <img src="./static/images/github.svg" alt="github" />
+            <span>Github</span>
+          </a>
+        </header>
         <h1>Tainara Lima</h1>
         <div id="bio-content">
           <!-- This is the divider. The position in the HTML doesn't matter, because it has position absolute -->
-          <div class="custom-shape-divider-bottom-1712452141">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z"
-                class="shape-fill"
-              ></path>
-            </svg>
-          </div>
           <!-- This is the left side of the first page content, with the notebook -->
           <div id="board">
             <div id="board-content">
@@ -57,11 +62,32 @@
             </div>
           </div>
           <!-- This is the image with the profile photo -->
-          <img id="hero" src="./static/images/hero.jpg" />
+          <div id="hero-container">
+            <img id="hero" src="./static/images/hero.png" />
+            <p id="intro">
+              Aspiring front-end developer. I'm currently a student in the
+              Interactive Media Design program at Seneca College. In this
+              portfolio, my goal is to show my entire learning and development
+              process.
+            </p>
+          </div>
           <!-- The little cat to add some charm xD -->
           <div id="cat">
             <img src="./static/images/single-cat.svg" />
           </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1712452141">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z"
+              class="shape-fill"
+            ></path>
+          </svg>
         </div>
       </section>
 
@@ -201,22 +227,6 @@
         class="footer-cat right"
         src="./static/images/footer-cat-right.svg"
       />
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://www.linkedin.com/in/tainarasb/"
-      >
-        <img src="./static/images/linkedin.svg" alt="linkedin" />
-        <span>Linkedin</span>
-      </a>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://github.com/TainaraAline"
-      >
-        <img src="./static/images/github.svg" alt="github" />
-        <span>Github</span>
-      </a>
       <div>
         <img src="./static/images/location.svg" alt="location" />
         <span>GTA, Ontario</span>

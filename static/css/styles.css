@@ -42,12 +42,45 @@ will always respect the palette chose */
   position: relative;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 30px;
+}
+
+header a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+  background-color: #fff;
+  padding: 10px 14px;
+  border-radius: 40px;
+  font-family: "Poppins", sans-serif;
+  border: 6px solid #ff64a3;
+  color: rgba(69, 19, 85, 1);
+}
+
+header a:hover {
+  transform: scale(1.1);
+  font-weight: 700;
+  color: rgba(255, 100, 163, 1);
+  transition: transform 0.2s linear;
+}
+
+header img {
+  width: 30px;
+  height: 30px;
+}
+
 #bio h1 {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   font-size: 96px;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 0;
   color: #fff;
 }
@@ -59,22 +92,51 @@ will always respect the palette chose */
   flex: 1;
 }
 
+#hero-container {
+  position: relative;
+}
+
 /* I put an animation to the shadow of the image, so it keeps
 growing up to a point until it resets and start all over again */
 #hero {
-  height: 450px;
-  width: 450px;
+  height: 400px;
+  width: 400px;
+  background: linear-gradient(
+    270deg,
+    rgba(69, 19, 85, 1) 0%,
+    rgba(110, 9, 121, 1) 50%,
+    rgba(255, 100, 163, 1) 100%
+  );
+  border: 30px solid #ff64a3;
   border-radius: 100%;
-  animation: shadowGrow 2s linear infinite;
+  object-fit: contain;
+  animation: shadowGrow 4s linear infinite;
 }
 
 @keyframes shadowGrow {
   0% {
     box-shadow: 0px 0px 21px 15px rgba(255, 49, 133, 1);
   }
-  100% {
+  50% {
     box-shadow: 0px 0px 60px 40px rgba(255, 49, 133, 1);
   }
+  100% {
+    box-shadow: 0px 0px 21px 15px rgba(255, 49, 133, 1);
+  }
+}
+
+#intro {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  max-width: 250px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 16px;
+  border: 2px dashed #000;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 /* Board is what I called the left part with the notebook and girl svg image.
@@ -333,7 +395,6 @@ footer {
   background-color: #000;
 }
 
-footer a,
 footer div {
   text-decoration: none;
   display: flex;
@@ -341,12 +402,6 @@ footer div {
   gap: 6px;
   font-size: 22px;
   color: #fff;
-}
-
-footer a:hover {
-  border-bottom: 3px solid #fff;
-  transform: scale(1.1);
-  transition: all 0.2s linear;
 }
 
 footer img {
@@ -379,15 +434,20 @@ footer img {
 
   #bio-content {
     flex-direction: column;
-    margin: 40px 0 60px;
+    margin: 40px 0 140px;
     gap: 60px;
   }
 
   #hero {
-    height: 300px;
-    width: 300px;
-    border-radius: 100%;
-    animation: shadowGrow 2s linear infinite;
+    height: 280px;
+    width: 280px;
+  }
+
+  #intro {
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    max-width: none;
   }
 
   #cat {
