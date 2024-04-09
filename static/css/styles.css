@@ -127,7 +127,7 @@ growing up to a point until it resets and start all over again */
 
 #intro {
   position: absolute;
-  bottom: -40px;
+  bottom: -34px;
   right: -20px;
   max-width: 250px;
   padding: 10px;
@@ -427,7 +427,7 @@ footer img {
 /* Responsive css */
 /* This is where I change some of the styles for responsiveness on mobile, tablets and smaller screens */
 /* I created 2 different media screen sizes, because some of the elements needed to change at different width sizes */
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1100px), screen and (max-height: 860px) {
   #bio {
     height: 100%;
   }
@@ -485,5 +485,11 @@ footer img {
     align-items: center;
     justify-content: end;
     gap: 10px;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  #cat {
+    right: 15px;
   }
 }
