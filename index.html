@@ -15,10 +15,10 @@
   <body>
     <!-- This is the input to track if the dark mode is enabled or not. -->
     <!-- It is important for it to be positioned here, becase css selectors can apply the styles accordingly -->
-    <!-- Also, this input will be hidden to the user, so there won't be a problem for it bring located in here -->
+    <!-- Also, this input will be hidden to the user, so there won't be a problem for it to be located in here -->
     <input id="dark-mode" type="checkbox" />
     <main>
-      <section id="bio">
+      <section id="bio-container">
         <header>
           <a
             target="_blank"
@@ -36,34 +36,25 @@
             <img src="./static/images/github.svg" alt="github" />
             <span>Github</span>
           </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://drive.google.com/file/d/1cJWbShmjZO6bu52HKbkt_niU5XJihYPs/view"
+          >
+            <img src="./static/images/resume.svg" alt="github" />
+            <span>Resume</span>
+          </a>
+          <div id="dark-mode-container">
+            <!-- Notice that in here there's only a label, but since the property "for" is pointing to the checkbox
+            it will behave similar to a click of a button, triggering the checkbox -->
+            <label for="dark-mode">
+              <img id="dark-mode-icon" src="./static/images/dark-light.svg" />
+            </label>
+          </div>
         </header>
         <h1>Tainara Lima</h1>
         <div id="bio-content">
-          <!-- This is the divider. The position in the HTML doesn't matter, because it has position absolute -->
-          <!-- This is the left side of the first page content, with the notebook -->
-          <div id="board">
-            <div id="board-content">
-              <div>
-                <h2>Student</h2>
-                <h2>@ Seneca</h2>
-              </div>
-              <p>Interactive Media Design</p>
-              <p>"May the force be with you!"</p>
-            </div>
-            <div id="resume">
-              <a
-                href="https://drive.google.com/file/d/1cJWbShmjZO6bu52HKbkt_niU5XJihYPs/view"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src="./static/images/resume.svg" />
-                <p>My resume</p>
-              </a>
-            </div>
-          </div>
-          <!-- This is the image with the profile photo -->
-          <div id="hero-container">
-            <img id="hero" src="./static/images/hero.png" />
+          <div>
             <p id="intro">
               Aspiring front-end developer. I'm currently a student in the
               Interactive Media Design program at Seneca College. In this
@@ -71,42 +62,13 @@
               process.
             </p>
           </div>
-          <!-- The little cat to add some charm xD -->
-          <div id="cat">
-            <img src="./static/images/single-cat.svg" />
-          </div>
-        </div>
-        <div class="custom-shape-divider-bottom-1712452141">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z"
-              class="shape-fill"
-            ></path>
-          </svg>
+          <!-- This is the image with the profile photo -->
+          <img id="hero" src="./static/images/hero.png" />
         </div>
       </section>
-
       <!-- This is where the second part of the portfolio begins, the list of projects -->
       <section id="projects" class="projects">
-        <!-- This is where the title will be. I created a div for it, because it will be of position relative, in order -->
-        <!-- to help placing the dark/light button -->
-        <div id="projects-title">
-          <h1>Delivered Projects</h1>
-          <div id="dark-mode-container">
-            <!-- Notice that in here there's only a label, but since the property "for" is pointing to the checkbox
-            it will behave similar to a click of a button, triggering the checkbox -->
-            <label for="dark-mode">
-              <!-- The image is default to dark, because most of the users use light mode on computer.
-              But in reality it doesn't matter, because Javascript will check and apply the correct image -->
-              <img id="dark-mode-icon" src="./static/images/dark.svg" />
-            </label>
-          </div>
-        </div>
+        <h1>Delivered Projects</h1>
         <div id="projects-list">
           <!-- This is the list of projects. Each article is a "card" on the screen -->
           <!-- And each card is a link where you can click to open the project -->
@@ -208,7 +170,11 @@
               rel="noreferrer"
               href="https://github.com/TainaraAline/Portfolio"
             >
-              <img src="./static/images/portfolio.PNG" alt="preview" />
+              <img
+                id="portfolio-project-image"
+                src="./static/images/portfolio-dark.PNG"
+                alt="preview"
+              />
               <div>
                 <h4>My Portfolio</h4>
                 <p>
@@ -231,6 +197,7 @@
         <img src="./static/images/location.svg" alt="location" />
         <span>GTA, Ontario</span>
       </div>
+      <small>Created by: Tainara Lima</small>
     </footer>
     <script src="./static/js/index.js"></script>
   </body>

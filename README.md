@@ -4,7 +4,7 @@ This project is a website where I list all the projects I created under the Inte
 
 To have a look at the webpage, click the banner below!
 
-[![Portfolio](./static/images/portfolio.PNG)](https://tainaraaline.github.io/Portfolio/)
+[![Portfolio](./static/images/portfolio-light.PNG)](https://tainaraaline.github.io/Portfolio/)
 
 ## Concepts used in this project
 
@@ -35,13 +35,11 @@ To have a look at the webpage, click the banner below!
 
 ## Sources
 
-- Yellow pointed divider: [Shape Divider](https://www.shapedivider.app/)
 - Footer background: [Haikei](https://haikei.app/)
-- SVG of notebook with girl: [unDraw](https://undraw.co/illustrations)
 - Fonts: [Dancing Script](https://fonts.google.com/specimen/Dancing+Script), [Poppins](https://fonts.google.com/specimen/Poppins)
 - Generate gradients: [CSS Gradient](https://cssgradient.io/)
 - Generate box-shadow: [CSS matic](https://www.cssmatic.com/box-shadow)
-- SVG of the cats spread throughout the page: [Freepik](https://www.freepik.com/)
+- SVG of the cats in the footer of page: [Freepik](https://www.freepik.com/)
 - SVG online editor: [Boxy SVG](https://boxy-svg.com/)
 - SVG icons: [SVG Repo](https://www.svgrepo.com/vectors/resume/)
-- SVG Icons for dark/light button: [Icon Packs](https://www.iconpacks.net/)
+- SVG for dark/light button made by me! xD

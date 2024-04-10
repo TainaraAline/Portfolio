@@ -15,6 +15,17 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #ffc1da;
+}
+
+/* This is how I apply the effects of dark mode enabled.
+So basically I use light mode as default styles and then I use this selector
+#dark-mode:checked + ... { ... }
+to apply dark styles when the checkbox is checked.
+I've been following the pattern of putting the dark mode styles right below
+the default styles, to be easier to compare and see what's being changed */
+#dark-mode:checked + main {
+  background-color: #0e0411;
 }
 
 main section {
@@ -25,11 +36,8 @@ main section {
 
 /* First visible screen, with my name, photo and resume */
 /* I want the first section of the website to have the full height of the browser.
-Also the background is set to the gradient from pruple to pink */
-/* This first section will not be affected by light/dark mode, as the colors
-will always respect the palette chose */
-/* Also the position relative is for the divider and cat */
-#bio {
+Also the background is set to the gradient from purple to pink on light mode */
+#bio-container {
   height: 100vh;
   flex-direction: column;
   padding: 0 20px;
@@ -39,14 +47,20 @@ will always respect the palette chose */
     rgba(110, 9, 121, 1) 50%,
     rgba(255, 100, 163, 1) 100%
   );
-  position: relative;
 }
 
+#dark-mode:checked + main #bio-container {
+  background: #0e0411;
+}
+
+/* This section is where I put the buttons to open either LinkedIn, Github or my resume */
 header {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  align-items: center;
+  gap: 30px;
   padding-top: 30px;
+  flex-wrap: wrap;
 }
 
 header a {
@@ -55,7 +69,7 @@ header a {
   align-items: center;
   gap: 6px;
   font-size: 22px;
-  background-color: #fff;
+  background-color: #ffd1e3;
   padding: 10px 14px;
   border-radius: 40px;
   font-family: "Poppins", sans-serif;
@@ -71,20 +85,40 @@ header a:hover {
 }
 
 header img {
-  width: 30px;
   height: 30px;
 }
 
-#bio h1 {
+/* Styles for the dark/light button */
+#dark-mode-container {
+  display: flex;
+  align-items: center;
+}
+
+#dark-mode-container label {
+  cursor: pointer;
+}
+
+#dark-mode-container label:hover {
+  transform: scale(1.2);
+  transition: all 0.4s ease-in-out;
+}
+
+#dark-mode-icon {
+  height: 54px;
+}
+
+/* This is the beginning of the content of the page. The first part is the title */
+#bio-container h1 {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   font-size: 96px;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 0;
-  color: #fff;
+  margin: 40px 0 0;
+  color: #ffd1e3;
+  display: inline;
 }
 
+/* This is the container of the first screen, where I put my introduction and photo */
 #bio-content {
   display: flex;
   align-items: center;
@@ -92,12 +126,17 @@ header img {
   flex: 1;
 }
 
-#hero-container {
-  position: relative;
+#intro {
+  max-width: 400px;
+  padding: 10px;
+  color: #ffd1e3;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
 }
 
 /* I put an animation to the shadow of the image, so it keeps
-growing up to a point until it resets and start all over again */
+growing up to a point until it shrinks back and start all over again */
 #hero {
   height: 400px;
   width: 400px;
@@ -125,116 +164,7 @@ growing up to a point until it resets and start all over again */
   }
 }
 
-#intro {
-  position: absolute;
-  bottom: -34px;
-  right: -20px;
-  max-width: 250px;
-  padding: 10px;
-  background: #fff;
-  border-radius: 16px;
-  border: 2px dashed #000;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-}
-
-/* Board is what I called the left part with the notebook and girl svg image.
-Here I put the content that is inside the board */
-#board {
-  background: url("../images/board.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 470px;
-  height: 412px;
-  min-width: 470px;
-  min-height: 412px;
-  display: flex;
-  font-family: "Dancing Script", cursive;
-}
-
-#board-content {
-  display: flex;
-  flex-direction: column;
-  width: 150px;
-  height: 260px;
-  padding: 16px 54px;
-  justify-content: space-between;
-}
-
-#board-content div {
-  display: flex;
-  flex-direction: column;
-}
-
-#board-content h2 {
-  display: inline;
-  margin: 0;
-  font-weight: 700;
-  font-size: 34px;
-  text-align: center;
-}
-
-#board-content p {
-  display: inline;
-  margin: 0;
-  font-size: 20px;
-  text-align: center;
-}
-
-#resume {
-  padding-left: 8px;
-  padding-top: 14px;
-}
-
-#resume img {
-  width: 30px;
-}
-
-#resume a {
-  text-decoration: none;
-  color: #000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 24px;
-  border: 2px dashed #000;
-  padding: 6px;
-}
-
-/* Here is the hover effect I put when you hover over the resume link */
-#resume a:hover {
-  transform: scale(1.08);
-  background-color: rgba(240, 255, 100, 0.4);
-  transition: all 0.4s ease-in-out;
-}
-
-#resume p {
-  margin: 0;
-}
-
-#cat {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-}
-
-#cat img {
-  width: 100px;
-}
-
-/* CSS provided by Shape Divider */
-.custom-shape-divider-bottom-1712452141 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  fill: #f0ff64;
-}
-
-/* Second part, where the list of projects are displayed */
+/* Second screen, where the list of projects are displayed */
 #projects {
   width: 100%;
   padding: 80px 40px;
@@ -242,64 +172,19 @@ Here I put the content that is inside the board */
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  background: linear-gradient(
-    180deg,
-    rgba(240, 255, 100, 1) 0%,
-    rgba(255, 255, 255, 1) 30%
-  );
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
-/* This is where I start to apply the effects of dark mode enabled.
-So basically I use light mode as default styles and then I use this selector
-#dark-mode:checked + ... { ... }
-to apply dark styles when the checkbox is checked.
-I've been following the pattern of putting the dark mode styles right below
-the default styles, to be easier to compare and see what's being changed */
-#dark-mode:checked + main #projects {
-  background: linear-gradient(
-    180deg,
-    rgba(240, 255, 100, 1) 0%,
-    rgba(0, 0, 0, 1) 30%
-  );
-}
-
-#projects-title {
-  position: relative;
-  width: 100%;
-}
-
-#dark-mode-container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-}
-
-#dark-mode-container label {
-  cursor: pointer;
-}
-
-#dark-mode-container label:hover {
-  transform: scale(1.2);
-  transition: all 0.4s ease-in-out;
-}
-
-#dark-mode-container img {
-  width: 60px;
-}
-
+/* The title of the section */
 #projects h1 {
   font-size: 42px;
   text-align: center;
-  color: #000;
+  color: rgba(69, 19, 85, 1);
 }
 
 #dark-mode:checked + main #projects h1 {
-  color: #fff;
+  color: #ffd1e3;
 }
 
 #projects-list {
@@ -311,23 +196,22 @@ the default styles, to be easier to compare and see what's being changed */
   gap: 40px 28px;
 }
 
-/* This is the card with the project contenton the screen */
+/* This is the card with the project content on the screen */
 #projects article {
   flex-basis: 23%;
   display: flex;
   min-width: 324px;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #000;
+  border: 2px solid rgba(69, 19, 85, 1);
   border-radius: 6px;
-  background-color: #fff;
-  box-shadow: 0px 0px 12px 4px #000;
+  background-color: transparent;
+  box-shadow: 0px 0px 12px 4px rgba(69, 19, 85, 0.6);
 }
 
 #dark-mode:checked + main #projects article {
-  border: 2px solid #f0ff64;
-  background-color: #000;
-  box-shadow: 0px 0px 12px 4px rgba(240, 255, 100, 0.6);
+  border: 2px solid #ff64a3;
+  box-shadow: 0px 0px 12px 4px rgba(255, 100, 163, 0.8);
 }
 
 /* A small animation on hovering the card */
@@ -378,30 +262,30 @@ the default styles, to be easier to compare and see what's being changed */
 footer {
   position: relative;
   display: flex;
-  align-items: end;
-  justify-content: space-evenly;
-  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
   padding: 8px 0 10px;
   height: 240px;
   background: url("../images/waves.svg");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
-  background-color: #fff;
+  background-color: #ffc1da;
   font-family: "Poppins", sans-serif;
+  color: rgba(69, 19, 85, 1);
 }
 
 #dark-mode:checked ~ footer {
-  background-color: #000;
+  background-color: #0e0411;
 }
 
 footer div {
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 22px;
-  color: #fff;
 }
 
 footer img {
@@ -426,15 +310,14 @@ footer img {
 
 /* Responsive css */
 /* This is where I change some of the styles for responsiveness on mobile, tablets and smaller screens */
-/* I created 2 different media screen sizes, because some of the elements needed to change at different width sizes */
 @media screen and (max-width: 1100px), screen and (max-height: 860px) {
-  #bio {
+  #bio-container {
     height: 100%;
   }
 
   #bio-content {
     flex-direction: column;
-    margin: 40px 0 140px;
+    margin: 40px 0 50px;
     gap: 60px;
   }
 
@@ -443,53 +326,11 @@ footer img {
     width: 280px;
   }
 
-  #intro {
-    left: 0;
-    right: 0;
-    bottom: -50px;
-    max-width: none;
-  }
-
-  #cat {
-    right: 15px;
-  }
-
-  .custom-shape-divider-bottom-1712452141 {
-    display: none;
-  }
-
-  #dark-mode-container {
-    bottom: unset;
-    top: -30px;
-  }
-
-  footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    gap: 10px;
-  }
-
   .footer-cat.left {
     left: 0;
   }
 
   .footer-cat.right {
     right: 10px;
-  }
-}
-
-@media screen and (max-width: 1370px) {
-  footer {
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    gap: 10px;
-  }
-}
-
-@media screen and (max-height: 900px) {
-  #cat {
-    right: 15px;
   }
 }
