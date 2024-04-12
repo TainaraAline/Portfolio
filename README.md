@@ -1,6 +1,6 @@
 # Tainara Lima - Portfolio
 
-This project is a website where I list all the projects I created under the Interactive Media Design cousr at Seneca College (and possibly other projects). Also, I tried to apply all the knowledge and concepts of INM-120 course in this project as well.
+This project is a website where I list all the projects I've created using the concepts I learned in the Introduction to Adaptive Web Development course under the guidance of Prof. Simul Bista.
 
 To have a look at the webpage, click the banner below!
 
