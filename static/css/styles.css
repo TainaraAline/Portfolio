@@ -75,13 +75,13 @@ header a {
   font-family: "Poppins", sans-serif;
   border: 6px solid #ff64a3;
   color: rgba(69, 19, 85, 1);
+  transition: transform 0.3s linear;
 }
 
 header a:hover {
   transform: scale(1.1);
   font-weight: 700;
   color: rgba(255, 100, 163, 1);
-  transition: transform 0.2s linear;
 }
 
 header img {
@@ -96,11 +96,11 @@ header img {
 
 #dark-mode-container label {
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 #dark-mode-container label:hover {
   transform: scale(1.2);
-  transition: all 0.4s ease-in-out;
 }
 
 #dark-mode-icon {
@@ -207,6 +207,7 @@ growing up to a point until it shrinks back and start all over again */
   border-radius: 6px;
   background-color: transparent;
   box-shadow: 0px 0px 12px 4px rgba(69, 19, 85, 0.6);
+  transition: all 0.4s ease-in-out;
 }
 
 #dark-mode:checked + main #projects article {
@@ -217,7 +218,6 @@ growing up to a point until it shrinks back and start all over again */
 /* A small animation on hovering the card */
 #projects article:hover {
   transform: scale(1.05);
-  transition: all 0.4s ease-in-out;
 }
 
 #projects article img {
